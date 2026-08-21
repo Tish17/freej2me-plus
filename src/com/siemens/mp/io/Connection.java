@@ -31,7 +31,7 @@ public class Connection
         if (listener != null) { listener.receiveData(data); }
     }
 
-    public static void setListener(ConnectionListener listener) { listener = listener; }
+    public void setListener(ConnectionListener listener) { Connection.listener = listener; }
 
     public ConnectionListener getListener() { return listener; }
 }
