@@ -805,7 +805,7 @@ public class MIDletLoader extends URLClassLoader
 		if(resource.contains("resource:")) 
 		{ 
 			resource = resource.replaceAll("resource:", "");
-			if(!Mobile.isDoJa) { isSiemens = true;  }
+			if(!Mobile.isDoJa) { isSiemens = true; resource = "r/" + resource; }
 		}
 
 		// If the resource has more than one slash in sequence, remove all of them (the check below will correct it back to one slash)
