@@ -804,7 +804,7 @@ public class MIDletLoader extends URLClassLoader
 		// Remove the "resource:" token that some jars pass into this method. FreeJ2ME doesn't need it.
 		if(resource.contains("resource:")) 
 		{ 
-			resource = resource.replaceAll("resource:", "");
+			resource = resource.replaceAll("resource:", "").replace("\\", "/");
 			if(!Mobile.isDoJa) { isSiemens = true; if(!resource.startsWith("r/")) { resource = "r/" + resource; } }
 		}
 
