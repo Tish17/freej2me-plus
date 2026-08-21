@@ -41,6 +41,8 @@
 	<compilerarg value="-Xlint:unchecked"/>
 	<compilerarg value="-Xlint:deprecation"/>
 	<compilerarg line="-encoding utf-8"/>
+	<compilerarg value="--patch-module"/>
+	<compilerarg value="java.xml=src"/>
 	</javac>
 
 
