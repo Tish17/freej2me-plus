@@ -661,7 +661,7 @@ public class MIDletLoader extends URLClassLoader
 
 		if(resource.startsWith("file://"))
 		{
-			resource = resource.substring(7);
+			resource = "r/" + resource.substring(7);
 		}
 
 		if(resource.startsWith("/"))
