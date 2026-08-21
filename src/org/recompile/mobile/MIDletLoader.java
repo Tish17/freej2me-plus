@@ -1014,6 +1014,7 @@ public class MIDletLoader extends URLClassLoader
 			if (t == -1) { return 0; }
 			return t;
 		}
+    public int available() { return iostream.available(); }
 	}
 
 
