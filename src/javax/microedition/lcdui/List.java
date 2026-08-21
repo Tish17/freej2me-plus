@@ -187,9 +187,9 @@ public class List extends Screen implements Choice
 		if(SELECT_COMMAND != null) { super.addCommand(SELECT_COMMAND); }
 	}
  
-	public void setSelectedFlags(boolean[] selectedArray) 
-	{ 
-		for(int i = 0; i < selectedArray.length; i++) 
+	public void setSelectedFlags(boolean[] selectedArray)
+	{
+		for(int i = 0; i < Math.min(selectedArray.length, selectedItems.size()); i++)
 		{
 			setSelectedIndex(i, selectedArray[i]);
 		}
@@ -211,7 +211,7 @@ public class List extends Screen implements Choice
 		{
 			for(int i = 0; i < selectedItems.size(); i++) 
 			{
-				if(i != elementNum) { selectedItems.set(elementNum, false); }
+				if(i != elementNum) { selectedItems.set(i, false); }
 			}
 		}
 
