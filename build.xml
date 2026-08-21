@@ -5,8 +5,8 @@
 *    Class compilation
 ****************************************************
 -->
-  <property name="source.version" value="8"/>
-  <property name="target.version" value="8"/>
+  <property name="source.version" value="17"/>
+  <property name="target.version" value="17"/>
 
 	<mkdir dir="build/classes"/>
 	<mkdir dir="build/classes/org/objectweb"/>
@@ -43,6 +43,10 @@
 	<compilerarg line="-encoding utf-8"/>
 	<compilerarg value="--patch-module"/>
 	<compilerarg value="java.xml=src"/>
+	<compilerarg value="--add-modules"/>
+	<compilerarg value="java.desktop"/>
+	<compilerarg value="--add-reads"/>
+	<compilerarg value="java.xml=java.desktop"/>
 	</javac>
 
 

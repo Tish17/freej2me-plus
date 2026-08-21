@@ -21,6 +21,7 @@ import org.recompile.mobile.Mobile;
 import org.recompile.mobile.PlatformImage;
 import org.recompile.mobile.PlatformGraphics;
 
+import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
@@ -174,6 +175,19 @@ public class ExtendedImage extends com.siemens.mp.misc.NativeMem
 
 	public void blitToScreen(int x, int y) // from Micro Java Game Development By David Fox, Roman Verhovsek
 	{
+		// Draw onto the current displayable's backing image rather than directly to the frontbuffer.
+		// If we wrote to the frontbuffer, Canvas.repaintRequest's final flushGraphics call would
+		// overwrite the sprites with the undecorated canvas image, causing flicker.
+		javax.microedition.lcdui.Display display = Mobile.getDisplay();
+		if (display != null)
+		{
+			Displayable d = display.getCurrent();
+			if (d != null && d.graphics != null)
+			{
+				d.graphics.drawImage(image, x, y, 0);
+				return;
+			}
+		}
 		Mobile.getPlatform().flushGraphics(image, x, y, width, height);
-	} 
+	}
 }
