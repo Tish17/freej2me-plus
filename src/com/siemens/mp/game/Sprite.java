@@ -122,12 +122,10 @@ public class Sprite extends GraphicObject
 	
 	public void setFrame(int framenumber) { frame = framenumber; }
 	
-	public void setPosition(int X, int Y) 
-	{ 
-		collx += X - x;
-		colly += Y - y;
-		x = X; 
-		y = Y; 
+	public void setPosition(int X, int Y)
+	{
+		x = X;
+		y = Y;
 	}
 
 	protected void paint(Graphics g, int x, int y) 
