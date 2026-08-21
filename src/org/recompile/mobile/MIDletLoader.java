@@ -659,6 +659,11 @@ public class MIDletLoader extends URLClassLoader
 		URL url;
 		Mobile.log(Mobile.LOG_DEBUG, MIDletLoader.class.getPackage().getName() + "." + MIDletLoader.class.getSimpleName() + ": " + "Loading Resource: " + resource);
 
+		if(resource.startsWith("file://"))
+		{
+			resource = resource.substring(7);
+		}
+
 		if(resource.startsWith("/"))
 		{
 			resource = resource.substring(1);
