@@ -136,7 +136,7 @@ public class Manager
 		}
 
 		Mobile.log(Mobile.LOG_DEBUG, Manager.class.getPackage().getName() + "." + Manager.class.getSimpleName() + ": " + "Create Player "+locator);
-		if(!locator.equals(Manager.TONE_DEVICE_LOCATOR) && !locator.equals(Manager.MIDI_DEVICE_LOCATOR)) { return new SiemensPlatformPlayer(stream, ""); } // Empty type, let PlatformPlayer handle it
+		if(!locator.equals(Manager.TONE_DEVICE_LOCATOR) && !locator.equals(Manager.MIDI_DEVICE_LOCATOR)) { return new SiemensPlatformPlayer(stream, locator.endsWith(".si3") ? "audio/si3" : ""); } // Empty type, let PlatformPlayer handle it
 		else { return new SiemensPlatformPlayer(locator); } // If it's a dedicated locator, PlatformPlayer can handle it directly
 	}
 

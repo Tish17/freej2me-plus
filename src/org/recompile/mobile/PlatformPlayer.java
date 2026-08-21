@@ -128,6 +128,7 @@ public class PlatformPlayer implements Player
 			if(contentType.toLowerCase().contains("mid") || contentType.toLowerCase().contains("tone")) { player = new midiPlayer(stream); }
 			else if(contentType.toLowerCase().contains("wav")) { player = new wavPlayer(stream); }
 			else if(contentType.toLowerCase().contains("mp"))  { player = new MP3Player(stream); } // MP1, MP2, MP3, MPEG, etc. No other J2ME format has those two letters in sequence.
+				else if(contentType.toLowerCase().contains("si3")) { player = new audioplayer(); disableControls = true; } // Siemens SI3 format stub
 			else /* If the stream doesn't have an accompanying type or its a type we don't have an explicit player for, do everything we can to try and load it */
 			{
 				try
